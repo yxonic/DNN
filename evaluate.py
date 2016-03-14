@@ -3,33 +3,11 @@ import timeit
 
 import numpy as np
 
-from sklearn.ensemble import RandomForestClassifier
-from sklearn.metrics import accuracy_score
-
 import theano
 import theano.tensor as T
 
 import utils
 import layers
-
-
-def evaluate_rf(n_trees=200):
-    print("Loading datasets...")
-    train_set, valid_set, test_set = utils.load_MNIST()
-    train_set_X, train_set_y = train_set
-    test_set_X, test_set_y = test_set
-
-    model = RandomForestClassifier(n_estimators=n_trees,
-                                   verbose=2, n_jobs=4)
-
-    print("Training...")
-    model.fit(train_set_X, train_set_y)
-
-    print("Predicting on test set...")
-    y_score = model.predict(test_set_X)
-
-    score = accuracy_score(y_score, test_set_y)
-    print("Precision:", score)
 
 
 def evaluate_lenet(learning_rate=0.1, n_epochs=1,
@@ -200,5 +178,4 @@ def evaluate_lenet(learning_rate=0.1, n_epochs=1,
     print('Precision: ', test_score)
 
 if __name__ == '__main__':
-    # evaluate_rf()
     evaluate_lenet()
