@@ -10,7 +10,7 @@ import utils
 import layers
 
 
-def evaluate_lenet(learning_rate=0.1, n_epochs=1,
+def evaluate_lenet(learning_rate=0.1, n_epochs=200,
                    nkerns=[20, 50], batch_size=500):
     rng = np.random.RandomState(12345)
 
