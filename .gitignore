@@ -1,3 +1,7 @@
+# virtualenv
+venv/
+
+# temp files and backup files
 data/
 tmp/
 __pycache__/
