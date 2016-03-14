@@ -7,7 +7,7 @@ import theano.tensor as T
 
 
 def load_MNIST():
-    """ Function that loads MNIST dataset
+    """Function that loads MNIST dataset
     """
     f = gzip.open('data/mnist.pkl.gz', 'rb')
     train_set, valid_set, test_set = pickle.load(f, encoding='latin1')
@@ -16,7 +16,7 @@ def load_MNIST():
 
 
 def shared_dataset(data_xy):
-    """ Function that loads the dataset into shared variables
+    """Function that loads the dataset into shared variables
 
     The reason we store our dataset in shared variables is to allow
     Theano to copy it into the GPU memory (when code is run on GPU).
@@ -31,6 +31,9 @@ def shared_dataset(data_xy):
 
 
 def make_param(name, value):
+    """Function that makes parameters into theano shared variables for DNN
+    layers.
+    """
     return theano.shared(
         value=value,
         name=name,
